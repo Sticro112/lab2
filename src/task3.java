@@ -2,23 +2,33 @@ import java.util.Scanner;
 
 public class task3 {
     public static void execute(Scanner scan) {
-        System.out.println("\n--- Завдання 3: ---");
-        System.out.print("Введіть a, b, c для квадратного рівняння: ");
-        double a = scan.nextDouble();
-        double b = scan.nextDouble();
-        double c = scan.nextDouble();
+        System.out.println("\n--- Завдання 3 ---");
+        System.out.println("Рівняння виду: ax^2 + bx + c = 0");
 
+        double a;
+        // Перевірка: а не може бути 0, бо тоді це лінійне рівняння
+        while (true) {
+            a = safeEngine.readDouble(scan, "Введіть коефіцієнт a (не 0): ");
+            if (a != 0) break;
+            System.out.println("Помилка: Коефіцієнт 'a' не може дорівнювати нулю у квадратному рівнянні!");
+        }
+
+        double b = safeEngine.readDouble(scan, "Введіть коефіцієнт b: ");
+        double c = safeEngine.readDouble(scan, "Введіть коефіцієнт c: ");
+
+        // Обчислення дискримінанта
         double d = Math.pow(b, 2) - 4 * a * c;
+        System.out.printf("Дискримінант D = %.2f\n", d);
 
         if (d > 0) {
             double x1 = (-b + Math.sqrt(d)) / (2 * a);
             double x2 = (-b - Math.sqrt(d)) / (2 * a);
-            System.out.printf("Два корені: x1 = %.2f, x2 = %.2f\n", x1, x2);
+            System.out.printf("Рівняння має два корені: x1 = %.2f, x2 = %.2f\n", x1, x2);
         } else if (d == 0) {
             double x = -b / (2 * a);
-            System.out.printf("Один корінь: x = %.2f\n", x);
+            System.out.printf("Рівняння має один корінь: x = %.2f\n", x);
         } else {
-            System.out.println("Коренів немає (D < 0)");
+            System.out.println("Рівняння не має дійсних коренів (D < 0)");
         }
     }
 }
