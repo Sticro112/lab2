@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class task5 {
     public static void execute(Scanner scan) {
-        System.out.println("\n--- Завдання 3: ---");
+        System.out.println("\n--- Завдання 5: ---");
         double input = safeEngine.readDouble(scan, "Введіть число для перевірки: ");
 
         // Перевірка на ціле число через залишок від ділення на 1

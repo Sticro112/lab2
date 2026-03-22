@@ -4,8 +4,6 @@ public class task4 {
     public static void execute(Scanner scan) {
         System.out.println("\n--- Завдання 4: ---");
 
-        // Використовуємо безпечне введення з Main.java
-        // Якщо користувач введе літеру, програма попросить число заново
         double x = safeEngine.readDouble(scan, "Введіть координату x: ");
         double y = safeEngine.readDouble(scan, "Введіть координату y: ");
 
